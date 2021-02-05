@@ -24,7 +24,10 @@
         </a>
       </div>
     </div>
+    <h1 class="btn border-4">Hola mundo</h1>
   </div>
+
+  
 </template>
 
 <script>

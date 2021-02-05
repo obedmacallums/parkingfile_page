@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+ 
+
+.btn {
+    @apply p-4 bg-red-200;
+  
+  }
+
+@tailwind utilities;
+@tailwind screens;
