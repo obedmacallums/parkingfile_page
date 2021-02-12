@@ -1,38 +1,21 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      
+      <Animation2 class="bg-gray-100 rounded-md" />
+      
       <h1 class="title">
         parkingfile_page
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+                 
     </div>
-    <h1 class="btn border-4">Hola mundo</h1>
+        
   </div>
 
   
 </template>
 
-<script>
-export default {}
-</script>
+
 
 <style>
 /* Sample `apply` at-rules with Tailwind CSS
