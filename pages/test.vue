@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       
-      <Animation2 class="bg-gray-100 rounded-md" />
+      <Car_Animation class="bg-gray-100 rounded-md" />
       
       <h1 class="title">
         parkingfile_page
