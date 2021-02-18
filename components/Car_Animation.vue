@@ -9,7 +9,7 @@
 
 <script>
 import lottie from 'vue-lottie/src/lottie.vue'
-import * as animationData from "~/assets/animation.json";
+import * as animationData from "~/assets/car_animation.json";
 
 export default {
     components: {
