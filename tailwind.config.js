@@ -24,7 +24,8 @@ module.exports = {
       'secondary-blue': '#6DBBD9',
       'button-blue': '#39BDEE',
       'text-blue': '#114178',
-      'footer-blue': '#082f63'
+      'footer-blue': '#082f63',
+      'hover-blue': '#226EDB'
     },
     backgroundImage: theme => ({
       'top-circles': "url('~assets/img/top_circles.svg')",

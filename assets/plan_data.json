@@ -1,0 +1,29 @@
+[
+    {"title": "Inicio", 
+    "subtitle": "Para individuos y propietarios", 
+    "icon_path": "~assets/img/facebook.svg",
+    "feature_list": ["60.000 CLP /MES", 
+                    "Lee patentes en tiempo real",
+                    "Muestra caracteristicas del vehiculo",
+                    "Retencion de datos durante 30 dias",
+                    "4 usuarios",
+                    "interfaz optimizada para pc de escritorio",
+                    "Notificaciones via email y telegram"
+                    ]}
+    
+    ,
+
+
+    {"title": "Comercial", 
+    "subtitle": "Para negocios y empresas",
+    "icon_path": "~assets/img/facebook.svg",
+    "feature_list": ["120.000 CLP /MES", 
+                    "Lee patentes en tiempo real",
+                    "Muestra caracteristicas del vehiculo",
+                    "Retencion de datos durante 90 dias",
+                    "Usuarios ilimitados",
+                    "Interfaz optimizada para pc de escritorio y equipos moviles",
+                    "Notificaciones via email, whatsapp, telegram, sms"
+                     ]}
+
+]

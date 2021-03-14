@@ -22,4 +22,9 @@ export default {
 .btn-blue:hover {
   @apply bg-primary-blue;
 }
+.btn-blue:focus {
+  @apply outline-none
+
+}
+
 </style>

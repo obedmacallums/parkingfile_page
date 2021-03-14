@@ -28,8 +28,8 @@
       </div>
     </div>
     </div>
-
-    <div class="grid grid-cols-1 lg:gap-20 middle lg:mx-16 lg:grid-cols-2">
+  <div class="middle">
+    <div class="grid grid-cols-1 lg:gap-20 lg:mx-16 lg:grid-cols-2">
       <div class="w-auto my-8 lg:my-24">
         <img src="~assets/img/auto2.png" alt="auto">
       </div>
@@ -47,9 +47,81 @@
            mostrando en tiempo real:  numero de patente, marca, color y dirección de viaje.</p>
         </div>
         </div>
+      
+      
+      <br>
+    </div>
+    
+    
+    <div class="grid grid-cols-1 lg:gap-20 lg:mx-16 lg:grid-cols-2">
+      
+      <div class="lg:my-24">
+      <div class="font-sans text-4xl font-bold text-text-blue">
+          <p>Administra, controla y mejora la seguridad </p>
+        </div>
+
+        
+        <div class="my-6 font-sans text-lg text-black">
+          <p>
+           En condominios, proporciona al personal administrativo una interfaz gráfica con información de residentes y visitantes, 
+           permitiendo controlar los tiempos de estadía. Ayuda a mejorar la seguridad; llevando registro de los vehículos que ingresan, 
+           recibiendo notificaciones cuando se detecta una patente de interés.
+           </p>
+        </div>
+        </div>
+        <div class="grid content-center grid-cols-3 gap-4 justify-items-center lg:justify-items-end">
+
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/edificios.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Edificios</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/condominios.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Condominios</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/empresas.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Empresas</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/estacionamientos.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Estacionamientos</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/estaciones.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Estaciones de Servicio</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/bodegas.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Bodegas</p>
+    </div>
+    
+
+    
+
+    
+           
+
+ </div>      
+       
+       
+       
+        <br>
+        
+
 
     </div>
+
+    <Plan class="lg:gap-8 lg:mx-16"/>
     <br>
+
+    <Faq class="lg:gap-8 lg:mx-16"/>
+    <br>
+    <Form class="lg:gap-8 lg:mx-16"/>
+    </div>
+
+    
+    
 
     <div class="bg-blue-800 footer">
       <Footer/>
