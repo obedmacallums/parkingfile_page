@@ -1,7 +1,6 @@
 <template>
 <div>
-
-    <div class="py-3 text-center">
+  <div class="py-3 text-center">
          <div class="font-sans text-4xl font-bold text-text-blue">
           <p>Contáctanos</p>
         </div>
@@ -46,8 +45,14 @@
     <div class="flex flex-col py-3 my-3">
     <label for="comuna" class="font-sans text-lg font-bold text-text-blue">Comuna</label>
     <div class="h-12">
-    <input type="text" name="comuna" id="comuna" placeholder="Ingresa el nombre de tu comuna" v-model="comuna" form="contactform" 
-    class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_comuna">
+    <select name="comuna" id="comuna" placeholder="Ingresa el nombre de tu comuna" v-model="comuna" form="contactform" 
+    class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_comuna styled-select">
+    <option v-for="comuna in comunas"> {{comuna}}</option>
+    
+    
+    </select>
+    
+
     </div>
     </div>
     
@@ -122,7 +127,7 @@ import comunas_data from "~/assets/comunas_data.json";
 export default {
      data(){
          return {
-            comunas : comunas_data,
+            comunas: null,
             errors:[],
             name:null,
             email:null,
@@ -130,8 +135,7 @@ export default {
             comuna:null,
             proyecto:null,
             comment:null
-                                       
-         }
+                }
 
      },
      
@@ -168,10 +172,25 @@ export default {
     var re = /^\+56\d{9}$/;
     return re.test(phone);
     }
+    ,
+    comunaslist: function(){
+      var lista = []
+      comunas_data.forEach(element => {
+        element['comunas'].forEach(element => {
+          lista.push(element.toUpperCase())});
+      });
+      this.comunas = lista.sort()
+      }
+    }
+    ,
+
+    mounted() {
+      this.comunaslist();
+
 
     }
+}
 
-    }
 
 
 </script>
@@ -201,8 +220,11 @@ padding-left:45px;
 
 .icon_comuna{
 
-background: url('~assets/img/comuna.svg') no-repeat scroll 5px 5px;
+background: url('~assets/img/comuna.svg') no-repeat scroll 5px 5px, url('~assets/img/arrow.svg') no-repeat scroll 5px 5px;
 padding-left:40px;
+background-position-x: 1%, 98%;
+background-position-y: center;
+
 
 }
 
