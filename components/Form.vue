@@ -17,8 +17,12 @@
     <div class="flex flex-col py-3 my-3">
     <label for="name" class="font-sans text-lg font-bold text-text-blue">Nombre y Apellido</label>
     <div class="h-12">
-    <input type="text" name="name" id="name" placeholder="Ingresa tu nombre" v-model="name" form="contactform" 
+    <input type="text" name="name" id="name" placeholder="Ingresa tu nombre" v-model.trim="$v.name.$model" form="contactform" 
     class="w-full h-full border border-gray-300 icon_name rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100">
+    <div v-if="$v.name.$error">
+    <div class="error" v-if="!$v.name.required">Name is required</div>
+    <div class="error" v-if="!$v.name.minLength">Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
+    </div>
     </div>
     </div>
     
@@ -28,18 +32,25 @@
     <div class="flex flex-col py-3 my-3">
     <label for="email" class="font-sans text-lg font-bold text-text-blue">Correo Electronico</label>
     <div class="h-12">
-    <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico" v-model="email" form="contactform" 
+    <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico" v-model.trim="$v.email.$model" form="contactform" 
     class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_mail">
+    <div v-if="$v.email.$error">
+    <div class="error" v-if="!$v.email.required">email is required</div>
+    <div class="error" v-if="!$v.email.email">email invalid</div>
+    </div>
     </div>
     </div>
 
     <div class="flex flex-col py-3 my-3">
     <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
     <div class="h-12">
-    <input type="tel" id="phone" name="phone" placeholder="Ingresa tu telefono" v-model="phone" form="contactform" 
+    <input type="tel" id="phone" name="phone" placeholder="Ingresa tu telefono" v-model.trim="$v.phone.$model" form="contactform" 
     class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone">
+    <div v-if="$v.phone.$error">
+    <div class="error" v-if="!$v.phone.required">phone is required</div>
+    <div class="error" v-if="!$v.phone.valphone">phone invalid, formato +56930679681</div>
     </div>
-    <p class="text-xs text-text-blue">Formato: +56123456789 </p>
+    </div>
     </div>
 
     <div class="flex flex-col py-3 my-3">
@@ -122,57 +133,55 @@
 </template>
 
 <script>
+
 import comunas_data from "~/assets/comunas_data.json";
+import { required, minLength, email, helpers } from 'vuelidate/lib/validators'
+
+const valphone = helpers.regex('valphone', /^\+56\d{9}$/)
 
 export default {
      data(){
          return {
             comunas: null,
             errors:[],
-            name:null,
+            name:'',
             email:null,
             phone:null,
             comuna:null,
             proyecto:null,
-            comment:null
+            comment:null,
+            submitStatus:null
                 }
+
+     },
+     validations: {
+       name: {required, minLength: minLength(4)},
+       email: {required, email},
+       phone: {required, valphone}
+
+
 
      },
      
      
    methods: {
-    checkForm: function (e) {
-    this.errors = [];
-    if(!this.name) this.errors.push("Nombre requerido.");
-
-    if(!this.email) {
-        this.errors.push("Email requerido.");
-        }else if(!this.validEmail(this.email)) {
-        this.errors.push("Correo invalido.");
+    checkForm() {
+      console.log('submit!')
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR'
+        console.log("error")
+      } else {
+        // do your submit logic here
+        this.submitStatus = 'PENDING'
+        setTimeout(() => {
+          this.submitStatus = 'OK'
+        }, 500)
+        console.log("enviado")
       }
-
-    if(!this.phone) {
-        this.errors.push("Telefono requerido.");
-        }else if(!this.validPhone(this.phone)) {
-        this.errors.push("Telefono invalido.");
-      }
-
-    console.log(this.name, ' ', this.email, ' ',this.phone, ' ',this.comuna, ' ',this.proyecto, ' ',this.comment)
-
-    if(!this.errors.length) {console.log("formulario enviado")};
-
     }
     ,
-    validEmail:function(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-    }
-    ,
-    validPhone:function(phone) {
-    var re = /^\+56\d{9}$/;
-    return re.test(phone);
-    }
-    ,
+    
     comunaslist: function(){
       var lista = []
       comunas_data.forEach(element => {
@@ -180,7 +189,12 @@ export default {
           lista.push(element.toUpperCase())});
       });
       this.comunas = lista.sort()
-      }
+      },
+    setName(value) {
+      this.name = value
+      console.log("hola")
+      this.$v.name.$touch()
+    }
     }
     ,
 
