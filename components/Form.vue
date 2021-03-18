@@ -98,11 +98,11 @@
                 class="w-full h-full p-2 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100"/>
                 </div>
             </div>
-        <div class="text-red-500 error" v-if="errors.length">
+        <div class="text-red-500 error">
            
-        <ul>
-        <li v-for="error in errors">{{ error }}</li>
-        </ul>
+        <p class="" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
+        <p class="" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
+        <p class="" v-if="submitStatus === 'PENDING'">Sending...</p>
         </div>
 
 
