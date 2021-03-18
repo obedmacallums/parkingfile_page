@@ -143,8 +143,7 @@ export default {
      data(){
          return {
             comunas: null,
-            errors:[],
-            name:'',
+            name:null,
             email:null,
             phone:null,
             comuna:null,
