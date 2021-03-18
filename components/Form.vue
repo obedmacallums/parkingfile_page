@@ -56,12 +56,7 @@
     <div class="flex flex-col py-3 my-3">
     <label for="comuna" class="font-sans text-lg font-bold text-text-blue">Comuna</label>
     <div class="h-12">
-    <select name="comuna" id="comuna" placeholder="Ingresa el nombre de tu comuna" v-model="comuna" form="contactform" 
-    class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_comuna styled-select">
-    <option v-for="comuna in comunas"> {{comuna}}</option>
-    
-    
-    </select>
+     <v-select :options="comunas" v-model="comuna" class="style-chooser"></v-select>
     
 
     </div>
@@ -133,6 +128,7 @@
 </template>
 
 <script>
+import 'vue-select/dist/vue-select.css';
 
 import comunas_data from "~/assets/comunas_data.json";
 import { required, minLength, email, helpers } from 'vuelidate/lib/validators'
@@ -142,11 +138,11 @@ const valphone = helpers.regex('valphone', /^\+56\d{9}$/)
 export default {
      data(){
          return {
-            comunas: null,
+            comunas: [],
             name:null,
             email:null,
             phone:null,
-            comuna:null,
+            comuna:'',
             proyecto:null,
             comment:null,
             submitStatus:null
@@ -209,6 +205,37 @@ export default {
 </script>
 
 <style>
+.style-chooser .vs__dropdown-toggle{
+
+  height: 3rem;
+  border-radius: 0.75rem;
+  
+}
+
+.style-chooser:focus-within .vs__dropdown-toggle:focus-within{
+
+  height: 3rem;
+  border-radius: 0.75rem;
+  border-color: #4299e1;
+  background-color: #f7fafc
+;
+   
+
+}
+
+
+
+.style-chooser .vs__dropdown-menu, .style-chooser .vs__search::placeholder{
+
+  border-radius: 0.75rem;
+  background-color: #f7fafc;
+
+}
+
+
+
+
+
 
 .icon_mail{
 
