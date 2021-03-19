@@ -20,8 +20,8 @@
     <input type="text" name="name" id="name" placeholder="Ingresa tu nombre" v-model.trim="$v.name.$model" form="contactform" 
     class="w-full h-full border border-gray-300 icon_name rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100">
     <div v-if="$v.name.$error">
-    <div class="error" v-if="!$v.name.required">Name is required</div>
-    <div class="error" v-if="!$v.name.minLength">Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
+    <div class="text-xs text-red-500" v-if="!$v.name.required">El nombre es requerido</div>
+    <div class="text-xs text-red-500" v-if="!$v.name.minLength">El nombre debe al menos tener {{$v.name.$params.minLength.min}} letras.</div>
     </div>
     </div>
     </div>
@@ -35,8 +35,8 @@
     <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico" v-model.trim="$v.email.$model" form="contactform" 
     class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_mail">
     <div v-if="$v.email.$error">
-    <div class="error" v-if="!$v.email.required">email is required</div>
-    <div class="error" v-if="!$v.email.email">email invalid</div>
+    <div class="text-xs text-red-500" v-if="!$v.email.required">Email es requerido</div>
+    <div class="text-xs text-red-500" v-if="!$v.email.email">Email invalido. hola@ejemplo.com (todo en minusculas)</div>
     </div>
     </div>
     </div>
@@ -47,8 +47,8 @@
     <input type="tel" id="phone" name="phone" placeholder="Ingresa tu telefono" v-model.trim="$v.phone.$model" form="contactform" 
     class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone">
     <div v-if="$v.phone.$error">
-    <div class="error" v-if="!$v.phone.required">phone is required</div>
-    <div class="error" v-if="!$v.phone.valphone">phone invalid, formato +56930679681</div>
+    <div class="text-xs text-red-500" v-if="!$v.phone.required">El telefono es requerido</div>
+    <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, el formato es: +56123456789</div>
     </div>
     </div>
     </div>
@@ -56,7 +56,12 @@
     <div class="flex flex-col py-3 my-3">
     <label for="comuna" class="font-sans text-lg font-bold text-text-blue">Comuna</label>
     <div class="h-12">
-     <v-select :options="comunas" v-model="comuna" class="style-chooser"></v-select>
+     <v-select :options="comunas" v-model.trim="$v.comuna.$model" class="style-chooser">
+       <div slot="no-options">Lo siento, opciones no coinciden</div>
+     </v-select>
+     <div v-if="$v.comuna.$error">
+    <div class="text-xs text-red-500" v-if="!$v.comuna.required">La comuna es requerida</div>
+    </div>
     
 
     </div>
@@ -72,12 +77,9 @@
     <div class="py-3 my-3">
     <label for="name" class="font-sans text-lg font-bold text-text-blue">Tipo de proyecto</label>
     <div class="h-12">
-    <select name="proyecto" id="proyecto" v-model="proyecto" form="contactform" 
-    class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 styled-select icon_arrow">
-    <option>CONDOMINIO</option>
-      <option>EDIFICIO</option>
-      <option>ESTACION DE SERVICIO</option>
-    </select>
+    <v-select :options="proyectos" v-model="proyecto" class="style-chooser">
+      <div slot="no-options">Lo siento, opciones no coinciden</div>
+    </v-select>
     </div>
     </div>
       
@@ -93,11 +95,11 @@
                 class="w-full h-full p-2 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100"/>
                 </div>
             </div>
-        <div class="text-red-500 error">
+        <div class="">
            
-        <p class="" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
-        <p class="" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-        <p class="" v-if="submitStatus === 'PENDING'">Sending...</p>
+        <p class="text-green-500" v-if="submitStatus === 'OK'">Enviado!</p>
+        <p class="text-red-500" v-if="submitStatus === 'ERROR'">Por favor verifica todos los campos.</p>
+        <p class="text-text-blue" v-if="submitStatus === 'PENDING'">Enviando...</p>
         </div>
 
 
@@ -139,10 +141,11 @@ export default {
      data(){
          return {
             comunas: [],
+            proyectos: ['CONDOMINIO', 'EDIFICIO', 'ESTACION DE SERVICIO', 'BODEGA'],
             name:null,
             email:null,
             phone:null,
-            comuna:'',
+            comuna:null,
             proyecto:null,
             comment:null,
             submitStatus:null
@@ -152,7 +155,8 @@ export default {
      validations: {
        name: {required, minLength: minLength(4)},
        email: {required, email},
-       phone: {required, valphone}
+       phone: {required, valphone},
+       comuna: {required}
 
 
 
@@ -260,9 +264,9 @@ padding-left:45px;
 
 .icon_comuna{
 
-background: url('~assets/img/comuna.svg') no-repeat scroll 5px 5px, url('~assets/img/arrow.svg') no-repeat scroll 5px 5px;
+background: url('~assets/img/comuna.svg') no-repeat scroll 5px 5px;
 padding-left:40px;
-background-position-x: 1%, 98%;
+
 background-position-y: center;
 
 
