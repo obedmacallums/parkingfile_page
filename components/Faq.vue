@@ -10,11 +10,11 @@
         <img v-if="item.isHidden"  src="~/assets/img/positive.svg" />
         <img v-else  src="~/assets/img/negative.svg" />
         </div>
-        <span class="ml-2" >{{item.question}}</span>
+        <div class="ml-2 font-sans text-lg" >{{item.question}}</div>
         
         
     </div>
-    <div class="pl-8 ml-4 border-l-2 border-gray-500" v-bind:class="[item.isHidden ? 'hidden' : '']">
+    <div class="pl-8 ml-4 font-sans text-justify border-l-2 border-gray-500 text-md texto" v-bind:class="[item.isHidden ? 'hidden' : '']">
         {{item.answer}}
 
     </div>
@@ -28,6 +28,11 @@
 
 <style>
 
+.texto{
+
+    white-space: pre-line;
+    
+}
 
 
 
@@ -43,6 +48,7 @@
 
 
 import faq_data from "~/assets/faq_data.json";
+
 
 export default {
      data(){
@@ -61,15 +67,6 @@ export default {
         this.faq_data[index]['isHidden']= !this.faq_data[index]['isHidden']
         
         
-        
-        this.$refs['id' + index][0].focus()
-        
-        var rect = this.$refs['id' + index][0].getBoundingClientRect();
-        console.log(rect.top, rect.right, rect.bottom, rect.left);
-        
-        
-        
-        
 
         }
         
@@ -81,5 +78,12 @@ export default {
 
      }
 
+/*
+ 
+        this.$refs['id' + index][0].focus()
+        
+        var rect = this.$refs['id' + index][0].getBoundingClientRect();
+        console.log(rect.top, rect.right, rect.bottom, rect.left);
+*/
 
 </script>

@@ -1,19 +1,25 @@
 [
-    {"question": "Necesito que me fien y pago con especie",
-     "answer": "Información ordenada a tu disposición,  funciones configurables para innumerables casos de uso comercial. Reportes y notificaciones con registro",
+    {"question": "¿Cómo funciona el software de reconocimiento de patentes?",
+     "answer": "El sistema consta básicamente de 3 componentes:\n• Cámara.\n• Unidad de procesamiento in situ.\n• Servidor de procesamiento principal.\nLa unidad de procesamiento in situ lee cada imagen que es captada por la cámara, mediante un modelo de aprendizaje automático, detecta si la imagen contiene una patente, guarda las posibles imágenes candidatas y las envía al servidor principal. El servidor verifica si efectivamente corresponde a una imagen que contiene una patente de un vehículo y de ser así, aplica modelos de inteligencia artificial para obtener más información de la imagen y almacena los registros en su base de datos.",
      "isHidden" :true},
 
-     {"question": "Necesito que me fien y pago con especie",
-     "answer": "Información ordenada a tu disposición,  funciones configurables para innumerables",
+     {"question": "¿Es necesario realizar alguna instalación?",
+     "answer": "Si, es necesario instalar al menos 01 cámara y 01 Unidad de procesamiento in situ.",
      "isHidden" :true},
 
-     {"question": "Necesito que me fien y pago con especie",
-     "answer": "Para individuos y propietarios",
+     {"question": "¿Qué se necesita para el funcionamiento de los equipos a instalar?",
+     "answer": "• Disponer de suministro eléctrico.\n• Contar con una conexión estable a internet.\n• Disponer de un lugar bajo techo para la unidad de procesamiento in situ.",
      "isHidden" :true},
 
-     {"question": "Necesito que me fien y pago con especie",
-    "answer": "Para individuos y propietarios",
-    "isHidden" :true}
+     {"question": "¿Tiene costo la instalación?",
+    "answer": "Si, se coordina una visita para conocer las características del sitio, se le envía la cotizacion de instalación por correo electrónico y luego, previa aprobación, se fija fecha de instalación.",
+    "isHidden" :true},
     
-
+    {"question": "¿De qué depende el costo de instalación?",
+        "answer": "Depende de las características del lugar de instalación, de la cantidad de materiales necesarios (cables de red, molduras protectoras de cable), de la cantidad de cámaras y de unidades de procesamiento en situ requeridas.",
+        "isHidden" :true},
+    
+    {"question": "¿A qué corresponde el pago mensual de mi suscripción?",
+        "answer": "El pago mensual es por el uso del software administrativo de los datos almacenados en el servidor principal. Esta suscripción mensual también incluye el uso del software instalado en la unidad de procesamiento in situ.",
+        "isHidden" :true}
 ]
