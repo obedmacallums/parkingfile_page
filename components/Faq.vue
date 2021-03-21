@@ -6,9 +6,9 @@
 
     <div class="flex items-center font-sans font-bold question text-text-blue" @click="status(index)" :ref="'id' + index">
         
-        <div style="display: inline" class="">
-        <img v-if="item.isHidden"  src="~/assets/img/positive.svg" />
-        <img v-else  src="~/assets/img/negative.svg" />
+        <div style="display: inline" class="flex-shrink-0">
+        <img class="w-8 h-8" v-if="item.isHidden"  src="~/assets/img/positive.svg" />
+        <img class="w-8 h-8" v-else  src="~/assets/img/negative.svg" />
         </div>
         <div class="ml-2 font-sans text-lg" >{{item.question}}</div>
         
