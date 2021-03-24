@@ -49,6 +49,35 @@
         </div>
       
       
+      
+    </div>
+
+    <div class="grid grid-cols-1 lg:gap-20 lg:mx-16 lg:grid-cols-2">
+      <div class="lg:my-24">
+      <div class="font-sans text-4xl font-bold text-text-blue">
+          <p>ParkingFile Dashboard</p>
+        </div>
+
+        <div class="font-sans text-xl font-bold text-blue-800">
+          <p>Mas opciones</p>
+        </div>
+        <div class="my-6 font-sans text-lg text-black">
+          <p>
+           Información ordenada a tu disposición,  funciones configurables para innumerables casos de uso comercial. Reportes y notificaciones con registro fotográfico. Notificaciones a través de diversas plataformas. Multiples opciones de búsqueda. 
+      </p>
+        </div>
+        </div>
+
+      <div class="w-auto my-8 lg:my-24">
+        <video muted autoplay loop>
+        <source src="~assets/video/dashboard.mp4" type="video/mp4">
+        </video>
+
+        
+      </div>
+      
+      
+      
       <br>
     </div>
     
@@ -102,7 +131,9 @@
     
            
 
- </div>      
+ </div>
+
+ 
        
        
        
@@ -111,6 +142,8 @@
 
 
     </div>
+
+    
 
     <Plan class="lg:gap-8 lg:mx-16"/>
     <br>

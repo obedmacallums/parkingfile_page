@@ -5,9 +5,7 @@
           <p>Contáctanos</p>
         </div>
 
-        <div class="font-sans text-xl font-bold text-blue-800">
-          <p>Estamos aquí para ti</p>
-        </div>
+        
     </div>
 <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 
