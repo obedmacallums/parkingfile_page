@@ -19,7 +19,7 @@
     class="w-full h-full border border-gray-300 icon_name rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100">
     <div v-if="$v.name.$error">
     <div class="text-xs text-red-500" v-if="!$v.name.required">El nombre es requerido</div>
-    <div class="text-xs text-red-500" v-if="!$v.name.minLength">El nombre debe al menos tener {{$v.name.$params.minLength.min}} letras.</div>
+    <div class="text-xs text-red-500" v-if="!$v.name.minLength">Minimo {{$v.name.$params.minLength.min}} letras</div>
     </div>
     </div>
     </div>
@@ -42,11 +42,11 @@
     <div class="flex flex-col py-3 my-3">
     <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
     <div class="h-12">
-    <input type="tel" id="phone" name="phone" placeholder="Ingresa tu telefono" v-model.trim="$v.phone.$model" form="contactform" 
+    <input type="tel" id="phone" name="phone" placeholder="Ingresa tu telefono" v-model.trim="$v.phone.$model" form="contactform" :class="{ icon_phone_full: phone }"
     class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone">
     <div v-if="$v.phone.$error">
     <div class="text-xs text-red-500" v-if="!$v.phone.required">El telefono es requerido</div>
-    <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, el formato es: +56123456789</div>
+    <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, ingresa 9 digitos</div>
     </div>
     </div>
     </div>
@@ -78,6 +78,9 @@
     <v-select :options="proyectos" v-model="proyecto" class="style-chooser">
       <div slot="no-options">Lo siento, opciones no coinciden</div>
     </v-select>
+    <div v-if="$v.proyecto.$error">
+    <div class="text-xs text-red-500" v-if="!$v.proyecto.required">Selecciona el tipo del proyecto</div>
+    </div>
     </div>
     </div>
       
@@ -133,7 +136,7 @@ import 'vue-select/dist/vue-select.css';
 import comunas_data from "~/assets/comunas_data.json";
 import { required, minLength, email, helpers } from 'vuelidate/lib/validators'
 
-const valphone = helpers.regex('valphone', /^\+56\d{9}$/)
+const valphone = helpers.regex('valphone', /^\d{9}$/)
 
 export default {
      data(){
@@ -147,20 +150,21 @@ export default {
             proyecto:null,
             comment:null,
             submitStatus:null
-                }
+            }
 
      },
      validations: {
        name: {required, minLength: minLength(4)},
        email: {required, email},
        phone: {required, valphone},
-       comuna: {required}
+       comuna: {required},
+       proyecto:{required}
 
 
 
      },
      
-     
+      
    methods: {
     checkForm() {
       console.log('submit!')
@@ -178,7 +182,7 @@ export default {
       }
     }
     ,
-    
+
     comunaslist: function(){
       var lista = []
       comunas_data.forEach(element => {
@@ -257,6 +261,25 @@ padding-left:45px;
 
 background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px;
 padding-left:45px;
+background-position-y: center;
+
+}
+
+.icon_phone:focus{
+
+background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
+background-position-x: 1%,9%;
+padding-left:86px;
+background-position-y: center, 55%;
+
+}
+
+.icon_phone_full{
+
+background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
+background-position-x: 1%,9%;
+padding-left:86px;
+background-position-y: center, 55%;
 
 }
 
