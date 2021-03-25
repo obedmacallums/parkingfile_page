@@ -268,8 +268,8 @@ background-position-y: center;
 .icon_phone:focus{
 
 background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
-background-position-x: 1%,9%;
-padding-left:86px;
+background-position-x: 5px,45px;
+padding-left:82px;
 background-position-y: center, 55%;
 
 }
@@ -277,8 +277,8 @@ background-position-y: center, 55%;
 .icon_phone_full{
 
 background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
-background-position-x: 1%,9%;
-padding-left:86px;
+background-position-x: 5px,45px;
+padding-left:82px;
 background-position-y: center, 55%;
 
 }
