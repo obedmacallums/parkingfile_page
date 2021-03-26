@@ -262,7 +262,7 @@ padding-left:45px;
 
 background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px;
 padding-left:45px;
-background-position-y: center, center;
+background-position-y: center;
 
 }
 
@@ -270,7 +270,7 @@ background-position-y: center, center;
 
 background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
 background-position-x: 5px,40px;
-padding-left:80px;
+padding-left:78px;
 background-position-y: center, center;
 
 }
@@ -279,7 +279,7 @@ background-position-y: center, center;
 
 background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
 background-position-x: 5px,40px;
-padding-left:80px;
+padding-left:78px;
 background-position-y: center, center;
 
 }
