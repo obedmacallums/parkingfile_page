@@ -1,4 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="25" viewBox="0 0 36 25">
-  <rect id="Rectangle_1148" data-name="Rectangle 1148" width="36" height="25" fill="none"/>
-  <text id="_56" data-name="+56" transform="translate(3 3)" fill="#226edb" font-size="18" font-family="HelveticaNeueMedium, HelveticaNeue"><tspan x="0" y="17">+56</tspan></text>
+  <text id="_56" font-weight="bold" data-name="+56" transform="translate(3 3)" fill="#226edb" font-size="18" font-family="Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"><tspan x="0" y="17">+56</tspan></text>
 </svg>

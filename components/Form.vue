@@ -42,6 +42,7 @@
     <div class="flex flex-col py-3 my-3">
     <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
     <div class="h-12">
+      
     <input type="tel" id="phone" name="phone" placeholder="Ingresa tu telefono" v-model.trim="$v.phone.$model" form="contactform" :class="{ icon_phone_full: phone }"
     class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone">
     <div v-if="$v.phone.$error">
