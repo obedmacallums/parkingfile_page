@@ -1,93 +1,119 @@
 <template>
- <form @submit.prevent="submit">
-  <div class="form-group" :class="{ 'form-group--error': $v.name.$error }">
-    <label class="form__label">Name</label>
-    <input class="form__input" v-model.trim="$v.name.$model"/>
-  </div>
-  <div class="error" v-if="!$v.name.required">Name is required</div>
-  <div class="error" v-if="!$v.name.minLength">Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
-  <button class="button" type="submit" :disabled="submitStatus === 'PENDING'">Submit!</button>
-  <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
-  <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
-  <p class="typo__p" v-if="submitStatus === 'PENDING'">Sending...</p>
-</form> 
+  <div>
 
-  
+    <div class="py-3 my-3">
+        <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
+        <div class="relative flex h-12 mt-1 rounded-md">
+          <div v-if="phone" class="absolute inset-y-0 left-0 flex items-center pl-10 pointer-events-none">
+            <span class="font-bold text-md text-hover-blue">
+              +56
+            </span>
+          </div>
+          <input type="text" name="price" id="price" v-model.trim="$v.phone.$model" :class="{ padl_phone: phone }"
+          class="w-full h-full pl-12 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone" placeholder="Ingrese su telefono">
+         
+        </div>
+        <div v-if="$v.phone.$error">
+    <div class="text-xs text-red-500" v-if="!$v.phone.required">El telefono es requerido</div>
+    <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, ingresa 9 digitos</div>
+    </div>
+      </div> 
+
+
+</div>
+
 </template>
 
-
-
-<style>
-.form__input, .form__textarea {
-    position: relative;
-    margin-bottom: 2rem;
-}
-input {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    appearance: auto;
-    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    padding: 1px 2px;
-    border-width: 2px;
-    border-style: inset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-image: initial;
-}
-.form-group--error input, .form-group--error textarea, .form-group--error input:focus, .form-group--error input:hover {
-    border-color: #f79483;
-}
-.form-group--error input, .form-group--error textarea, .form-group--error input:focus, .form-group--error input:hover {
-    border-color: #f79483;
-}
-
-</style>
-
 <script>
-import { required, minLength } from 'vuelidate/lib/validators'
+import 'vue-select/dist/vue-select.css';
 
+import comunas_data from "~/assets/comunas_data.json";
+import { required, minLength, email, helpers } from 'vuelidate/lib/validators'
+
+const valphone = helpers.regex('valphone', /^\d{9}$/)
 
 export default {
-  data() {
-    return {
-      name: '',
-      age: 0,
-      submitStatus: null
-    }
-  },
-  validations: {
-    name: {required,
+     data(){
+         return {
+            comunas: [],
+            proyectos: ['CONDOMINIO', 'EDIFICIO', 'ESTACION DE SERVICIO', 'BODEGA'],
+            name:null,
+            email:null,
+            phone:null,
+            comuna:null,
+            proyecto:null,
+            comment:null,
+            submitStatus:null
+            }
+
+     },
+     validations: {
+       name: {required, minLength: minLength(4)},
+       email: {required, email},
+       phone: {required, valphone},
+       comuna: {required},
+       proyecto:{required}
+
+
+
+     },
+     
       
-      minLength: minLength(4)
-    }
-  },
-  methods: {
-    submit() {
-      console.log(this.$v.name)
+   methods: {
+    checkForm() {
       console.log('submit!')
       this.$v.$touch()
       if (this.$v.$invalid) {
         this.submitStatus = 'ERROR'
+        console.log("error")
       } else {
         // do your submit logic here
         this.submitStatus = 'PENDING'
         setTimeout(() => {
           this.submitStatus = 'OK'
         }, 500)
+        console.log("enviado")
       }
     }
-  }
+    ,
+
+    comunaslist: function(){
+      var lista = []
+      comunas_data.forEach(element => {
+        element['comunas'].forEach(element => {
+          lista.push(element.toUpperCase())});
+      });
+      this.comunas = lista.sort()
+      },
+    setName(value) {
+      this.name = value
+      console.log("hola")
+      this.$v.name.$touch()
+    }
+    }
+    ,
+
+    mounted() {
+      this.comunaslist();
+
+
+    }
 }
 
+
+
 </script>
+
+<style>
+.icon_phone{
+
+background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px;
+
+
+
+}
+.padl_phone{
+padding-left:80px;
+
+}
+</style>

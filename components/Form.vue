@@ -39,18 +39,23 @@
     </div>
     </div>
 
-    <div class="flex flex-col py-3 my-3">
-    <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
-    <div class="h-12">
-      
-    <input type="tel" id="phone" name="phone" placeholder="Ingresa tu telefono" v-model.trim="$v.phone.$model" form="contactform" :class="{ icon_phone_full: phone }"
-    class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone">
-    <div v-if="$v.phone.$error">
+    <div class="py-3 my-3">
+        <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
+        <div class="relative flex h-12 rounded-md">
+          <div v-if="phone" class="absolute inset-y-0 left-0 flex items-center pl-10 pointer-events-none">
+            <span class="text-xl font-bold text-hover-blue">
+              +56
+            </span>
+          </div>
+          <input type="text" name="price" id="price" v-model.trim="$v.phone.$model" :class="{ padl_phone: phone }"
+          class="w-full h-full pl-12 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone" placeholder="Ingrese su telefono">
+         
+        </div>
+        <div v-if="$v.phone.$error">
     <div class="text-xs text-red-500" v-if="!$v.phone.required">El telefono es requerido</div>
     <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, ingresa 9 digitos</div>
     </div>
-    </div>
-    </div>
+      </div> 
 
     <div class="flex flex-col py-3 my-3">
     <label for="comuna" class="font-sans text-lg font-bold text-text-blue">Comuna</label>
@@ -266,21 +271,8 @@ background-position-y: center;
 
 }
 
-.icon_phone:focus{
-
-background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
-background-position-x: 5px,40px;
-padding-left:78px;
-background-position-y: center, center;
-
-}
-
-.icon_phone_full{
-
-background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px, url('~assets/img/56.svg') no-repeat scroll 5px 5px;
-background-position-x: 5px,40px;
-padding-left:78px;
-background-position-y: center, center;
+.padl_phone{
+padding-left:80px;
 
 }
 
