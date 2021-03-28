@@ -39,21 +39,24 @@
     </div>
     </div>
 
-    <div class="flex-col py-3 my-3">
+    <div class="py-3 my-3">
         <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
-        <div class="relative flex-col h-12">
+        <div class="relative flex-col h-12 rounded-md">
         <div v-if="phone" class="absolute inset-y-0 left-0 flex items-center pl-12 pointer-events-none">
           <span class="font-bold text-hover-blue" style="font-size:17px">
             +56
           </span>
         </div>
-        <input type="text" name="price" id="price" v-model.trim="$v.phone.$model" :class="{ padl_phone: phone }"
+        <input type="tel" name="phone" id="phone" v-model.trim="$v.phone.$model" :class="{ padl_phone: phone }"
           class="w-full h-full pl-12 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone" placeholder="Ingrese su telefono">
-        <div v-if="$v.phone.$error">
+        <div>
+          <div v-if="$v.phone.$error">
           <div class="text-xs text-red-500" v-if="!$v.phone.required">El telefono es requerido</div>
           <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, ingresa 9 digitos</div>
         </div>
         </div>
+        </div>
+        
         
       </div>
       

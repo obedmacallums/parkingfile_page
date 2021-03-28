@@ -61,7 +61,7 @@
         <div class="font-sans text-xl font-bold text-blue-800">
           <p>Mas opciones</p>
         </div>
-        <div class="font-sans text-lg text-black">
+        <div class="my-6 font-sans text-lg text-black">
           <p>
            Información ordenada a tu disposición,  funciones configurables para innumerables casos de uso comercial. Reportes y notificaciones con registro fotográfico. Notificaciones a través de diversas plataformas. Multiples opciones de búsqueda. 
       </p>
