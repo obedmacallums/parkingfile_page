@@ -1,4 +1,12 @@
 <template>
+<div>
+<div class="py-3 text-center">
+         <div class="font-sans text-4xl font-bold text-text-blue">
+          <p>Planes disponibles</p>
+        </div>
+<br>
+        
+    </div>
     
 <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 
@@ -6,8 +14,11 @@
   class="grid grid-cols-1 border border-gray-200 rounded-xl hover:border-2 hover:border-hover-blue">
 
     <div class="">
-      <img :src="require(`~/assets/img/${item.title}.svg`)" class="mx-auto mt-8 w-22 h-22" />
-      <div class="p-4 mb-6 text-center">
+      <div class="pt-1 mx-auto icon_size" >
+      <img :src="require(`~/assets/img/${item.title}.svg`)" class="w-full h-full"/>
+      </div>
+
+      <div class="p-2 mb-6 text-center">
       <div class="font-sans text-4xl font-bold text-text-blue plan_title">{{ item.title }}</div>
      <div class="font-sans text-2xl font-bold text-text-blue plan_subtitle">{{ item.subtitle }}</div>
      </div>
@@ -29,7 +40,7 @@
 </div> 
 </div>
 </div>
-
+</div>
 </template>
 
 <script>
@@ -58,6 +69,13 @@ export default {
 
 .border_slim{
   border-width: 1px;
+
+}
+
+.icon_size{
+  height: 150px;
+  width: 150px;
+
 
 }
 

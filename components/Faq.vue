@@ -1,4 +1,13 @@
 <template>
+<div>
+<div class="py-3 text-center">
+         <div class="font-sans text-4xl font-bold text-text-blue">
+          <p>Preguntas frecuentes</p>
+        </div>
+
+        
+    </div>
+    <br>
 
 <div class="grid grid-cols-1 gap-8 principal lg:grid-cols-2">
 
@@ -23,7 +32,7 @@
 
 </div>
     
-
+</div>
 </template>
 
 <style>

@@ -58,7 +58,7 @@
       </div>
       
 
-    <div class="flex flex-col py-3 my-3">
+    <div class="flex flex-col lg:py-3 lg:my-3">
     <label for="comuna" class="font-sans text-lg font-bold text-text-blue">Comuna</label>
     <div class="h-12">
      <v-select :options="comunas" v-model.trim="$v.comuna.$model" class="style-chooser">
@@ -79,7 +79,7 @@
 
     <div class="flex flex-col 2">
 
-    <div class="py-3 my-3">
+    <div class="lg:py-3 lg:my-3">
     <label for="name" class="font-sans text-lg font-bold text-text-blue">Tipo de proyecto</label>
     <div class="h-12">
     <v-select :options="proyectos" v-model="proyecto" class="style-chooser">

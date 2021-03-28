@@ -1,5 +1,5 @@
 <template>
-  <div class="div_components">
+  <div class="pt-6 div_components">
 
     
     <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-2 lg:pl-6 lg:pt-6 xl:pl-12 xl:pt-12">
@@ -44,7 +44,7 @@
       <div class="block mt-4 font-sans text-white text-md">
         
           <h4 class="block mt-4 font-sans text-white text-md">soporte@parkingfile.com</h4>
-          <h4 class="block mt-4 font-sans text-white text-md">Teléfono +56930679681</h4>
+          <h4 class="block mt-4 font-sans text-white text-md">Teléfono +569 3067 9681</h4>
           <a href="#" class="block mt-4 font-sans text-white text-md hover:text-button-blue">
           Guias y tutoriales
           </a>
@@ -60,7 +60,7 @@
       <div class="block mt-4 font-sans text-white text-md">
         
           <h4 class="block mt-4 font-sans text-white text-md">contacto@parkingfile.com</h4>
-          <h4 class="block mt-4 font-sans text-white text-md">Teléfono +56930679681</h4>
+          <h4 class="block mt-4 font-sans text-white text-md">Teléfono +569 3067 9681</h4>
           <h4 class="block mt-4 font-sans text-white text-md">Santiago, Chile</h4>
       </div>
     </div>
