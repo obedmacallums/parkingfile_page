@@ -4,11 +4,11 @@
     "icon_path": "~assets/img/facebook.svg",
     "feature_list": ["60.000 CLP /MES", 
                     "Lee patentes en tiempo real",
-                    "Muestra caracteristicas del vehiculo",
-                    "Retencion de datos durante 30 dias",
+                    "Muestra características del vehículo",
+                    "Retención de datos durante 30 días",
                     "4 usuarios",
-                    "interfaz optimizada para pc de escritorio",
-                    "Notificaciones via email y telegram"
+                    "Interfaz optimizada para pc de escritorio",
+                    "Notificaciones vía email y telegram"
                     ]}
     
     ,
@@ -19,11 +19,11 @@
     "icon_path": "~assets/img/facebook.svg",
     "feature_list": ["120.000 CLP /MES", 
                     "Lee patentes en tiempo real",
-                    "Muestra caracteristicas del vehiculo",
-                    "Retencion de datos durante 90 dias",
+                    "Muestra características del vehículo",
+                    "Retención de datos durante 90 días",
                     "Usuarios ilimitados",
-                    "Interfaz optimizada para pc de escritorio y equipos moviles",
-                    "Notificaciones via email, whatsapp, telegram, sms"
+                    "Interfaz optimizada para pc de escritorio y equipos móviles",
+                    "Notificaciones vía email, whatsapp, telegram, sms"
                      ]}
 
 ]

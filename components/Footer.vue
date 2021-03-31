@@ -29,7 +29,7 @@
         Términos de servicio
       </a>
       <a href="#" class="block mt-4 font-sans text-white text-md hover:text-button-blue">
-        Preguntas frecuentes
+        Políticas de privacidad
       </a>
       <a href="#" class="block mt-4 font-sans text-white text-md hover:text-button-blue">
         Contrato de licencia de software
@@ -46,7 +46,7 @@
           <h4 class="block mt-4 font-sans text-white text-md">soporte@parkingfile.com</h4>
           <h4 class="block mt-4 font-sans text-white text-md">Teléfono +569 3067 9681</h4>
           <a href="#" class="block mt-4 font-sans text-white text-md hover:text-button-blue">
-          Guias y tutoriales
+          Guías y tutoriales
           </a>
         
       </div>

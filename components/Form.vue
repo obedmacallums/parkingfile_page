@@ -13,13 +13,13 @@
 
         
     <div class="flex flex-col py-3 my-3">
-    <label for="name" class="font-sans text-lg font-bold text-text-blue">Nombre y Apellido</label>
+    <label for="name" class="font-sans text-lg font-bold text-text-blue">Nombre y apellido</label>
     <div class="h-12">
     <input type="text" name="name" id="name" placeholder="Ingresa tu nombre" v-model.trim="$v.name.$model" form="contactform" 
     class="w-full h-full border border-gray-300 icon_name rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100">
     <div v-if="$v.name.$error">
     <div class="text-xs text-red-500" v-if="!$v.name.required">El nombre es requerido</div>
-    <div class="text-xs text-red-500" v-if="!$v.name.minLength">Minimo {{$v.name.$params.minLength.min}} letras</div>
+    <div class="text-xs text-red-500" v-if="!$v.name.minLength">Mínimo {{$v.name.$params.minLength.min}} letras</div>
     </div>
     </div>
     </div>
@@ -28,19 +28,19 @@
 
 
     <div class="flex flex-col py-3 my-3">
-    <label for="email" class="font-sans text-lg font-bold text-text-blue">Correo Electronico</label>
+    <label for="email" class="font-sans text-lg font-bold text-text-blue">Correo electrónico</label>
     <div class="h-12">
-    <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico" v-model.trim="$v.email.$model" form="contactform" 
+    <input type="email" name="email" id="email" placeholder="Ingresa tu correo electrónico" v-model.trim="$v.email.$model" form="contactform" 
     class="w-full h-full border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_mail">
     <div v-if="$v.email.$error">
-    <div class="text-xs text-red-500" v-if="!$v.email.required">Email es requerido</div>
-    <div class="text-xs text-red-500" v-if="!$v.email.email">Email invalido. hola@ejemplo.com (todo en minusculas)</div>
+    <div class="text-xs text-red-500" v-if="!$v.email.required">El email es requerido</div>
+    <div class="text-xs text-red-500" v-if="!$v.email.email">Email inválido, correo@ejemplo.com (todo en minúsculas)</div>
     </div>
     </div>
     </div>
 
     <div class="py-3 my-3">
-        <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
+        <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Teléfono</label>
         <div class="relative flex-col h-12 rounded-md">
         <div v-if="phone" class="absolute inset-y-0 left-0 flex items-center pl-12 pointer-events-none">
           <span class="font-bold text-hover-blue" style="font-size:17px">
@@ -48,11 +48,11 @@
           </span>
         </div>
         <input type="tel" name="phone" id="phone" v-model.trim="$v.phone.$model" :class="{ padl_phone: phone }"
-          class="w-full h-full pl-12 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone" placeholder="Ingrese su telefono">
+          class="w-full h-full pl-12 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone" placeholder="Ingresa tu teléfono">
         <div>
           <div v-if="$v.phone.$error">
-          <div class="text-xs text-red-500" v-if="!$v.phone.required">El telefono es requerido</div>
-          <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, ingresa 9 digitos</div>
+          <div class="text-xs text-red-500" v-if="!$v.phone.required">El teléfono es requerido</div>
+          <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Teléfono inválido, ingresa 9 dígitos</div>
         </div>
         </div>
         </div>
@@ -65,7 +65,7 @@
     <label for="comuna" class="font-sans text-lg font-bold text-text-blue">Comuna</label>
     <div class="h-12">
      <v-select :options="comunas" v-model.trim="$v.comuna.$model" class="style-chooser">
-       <div slot="no-options">Lo siento, opciones no coinciden</div>
+       <div slot="no-options">Lo siento, comuna inválida</div>
      </v-select>
      <div v-if="$v.comuna.$error">
     <div class="text-xs text-red-500" v-if="!$v.comuna.required">La comuna es requerida</div>
@@ -86,7 +86,7 @@
     <label for="name" class="font-sans text-lg font-bold text-text-blue">Tipo de proyecto</label>
     <div class="h-12">
     <v-select :options="proyectos" v-model="proyecto" class="style-chooser">
-      <div slot="no-options">Lo siento, opciones no coinciden</div>
+      <div slot="no-options">Lo siento, tipo de proyecto inválido</div>
     </v-select>
     <div v-if="$v.proyecto.$error">
     <div class="text-xs text-red-500" v-if="!$v.proyecto.required">Selecciona el tipo del proyecto</div>
@@ -152,7 +152,7 @@ export default {
      data(){
          return {
             comunas: [],
-            proyectos: ['CONDOMINIO', 'EDIFICIO', 'ESTACION DE SERVICIO', 'BODEGA'],
+            proyectos: ['CONDOMINIO', 'EDIFICIO', 'ESTACIÓN DE SERVICIO', 'BODEGA'],
             name:null,
             email:null,
             phone:null,
