@@ -1,119 +1,195 @@
 <template>
-  <div>
 
-    <div class="py-3 my-3">
-        <label for="phone" class="font-sans text-lg font-bold text-text-blue" >Telefono</label>
-        <div class="relative flex h-12 mt-1 rounded-md">
-          <div v-if="phone" class="absolute inset-y-0 left-0 flex items-center pl-10 pointer-events-none">
-            <span class="font-bold text-md text-hover-blue">
-              +56
-            </span>
-          </div>
-          <input type="text" name="price" id="price" v-model.trim="$v.phone.$model" :class="{ padl_phone: phone }"
-          class="w-full h-full pl-12 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-gray-100 icon_phone" placeholder="Ingrese su telefono">
-         
+
+  <div class="container mx-auto">
+    <div class="pt-10 pb-10 header_top">
+    <Navbar class="lg:mx-16" />
+    <div class="grid grid-cols-1 lg:mx-16 lg:grid-cols-2">
+      <div class="p-3">
+        <div class="font-sans text-4xl text-white font-semi-bold">
+          <p>Reconocimiento automático de patentes</p>
         </div>
-        <div v-if="$v.phone.$error">
-    <div class="text-xs text-red-500" v-if="!$v.phone.required">El telefono es requerido</div>
-    <div class="text-xs text-red-500" v-if="!$v.phone.valphone">Telefono invalido, ingresa 9 digitos</div>
+        <div class="my-6 font-sans text-lg text-white">
+          <p>
+            Implementa reconocimiento de patentes y vehículos con nuestro
+            software, diseñado para proporcionar información invaluable a tus
+            operaciones.
+          </p>
+        </div>
+        <div class="flex items-center space-x-4">
+          <c-button texto="Empieza"/>
+          <c-button texto="Conoce mas"/>
+          
+        </div>
+      </div>
+
+      <div>
+        <Car_Animation />
+      </div>
     </div>
-      </div> 
+    </div>
+  <div class="px-1 mx-1 mt-2 lg:px-0 lg:mx-0 middle">
+    <div class="grid grid-cols-1 lg:gap-20 lg:mx-16 lg:grid-cols-2">
+      <div class="w-auto my-8 lg:my-24">
+        <img src="~assets/img/auto2.png" alt="auto">
+      </div>
+      <div class="lg:my-24">
+      <div class="font-sans text-4xl font-bold text-text-blue">
+          <p>ParkingFile </p>
+        </div>
 
-
-</div>
-
-</template>
-
-<script>
-import 'vue-select/dist/vue-select.css';
-
-import comunas_data from "~/assets/comunas_data.json";
-import { required, minLength, email, helpers } from 'vuelidate/lib/validators'
-
-const valphone = helpers.regex('valphone', /^\d{9}$/)
-
-export default {
-     data(){
-         return {
-            comunas: [],
-            proyectos: ['CONDOMINIO', 'EDIFICIO', 'ESTACION DE SERVICIO', 'BODEGA'],
-            name:null,
-            email:null,
-            phone:null,
-            comuna:null,
-            proyecto:null,
-            comment:null,
-            submitStatus:null
-            }
-
-     },
-     validations: {
-       name: {required, minLength: minLength(4)},
-       email: {required, email},
-       phone: {required, valphone},
-       comuna: {required},
-       proyecto:{required}
-
-
-
-     },
-     
+        <div class="font-sans text-xl font-bold text-blue-800">
+          <p>Software de reconocimiento vehicular</p>
+        </div>
+        <div class="my-6 font-sans text-lg text-black">
+          <p>
+           Utilizando inteligencia artificial y aprendizaje automático se crea un registro detallado de los vehículos, 
+           mostrando en tiempo real:  numero de patente, marca, color y dirección de viaje.</p>
+        </div>
+        </div>
       
-   methods: {
-    checkForm() {
-      console.log('submit!')
-      this.$v.$touch()
-      if (this.$v.$invalid) {
-        this.submitStatus = 'ERROR'
-        console.log("error")
-      } else {
-        // do your submit logic here
-        this.submitStatus = 'PENDING'
-        setTimeout(() => {
-          this.submitStatus = 'OK'
-        }, 500)
-        console.log("enviado")
-      }
-    }
-    ,
+      
+      
+    </div>
 
-    comunaslist: function(){
-      var lista = []
-      comunas_data.forEach(element => {
-        element['comunas'].forEach(element => {
-          lista.push(element.toUpperCase())});
-      });
-      this.comunas = lista.sort()
-      },
-    setName(value) {
-      this.name = value
-      console.log("hola")
-      this.$v.name.$touch()
-    }
-    }
-    ,
+    <div class="grid grid-cols-1 lg:gap-20 lg:mx-16 lg:grid-cols-2">
+      <div class="lg:my-24">
+      <div class="font-sans text-4xl font-bold text-text-blue">
+          <p>ParkingFile Dashboard</p>
+        </div>
 
-    mounted() {
-      this.comunaslist();
+        <div class="font-sans text-xl font-bold text-blue-800">
+          <p>Mas opciones</p>
+        </div>
+        <div class="my-6 font-sans text-lg text-black">
+          <p>
+           Información ordenada a tu disposición,  funciones configurables para innumerables casos de uso comercial. Reportes y notificaciones con registro fotográfico. Notificaciones a través de diversas plataformas. Multiples opciones de búsqueda. 
+      </p>
+        </div>
+        </div>
+
+      <div class="w-auto my-8 lg:my-24">
+        <video muted autoplay loop>
+        <source src="~assets/video/dashboard.mp4" type="video/mp4">
+        </video>
+
+        
+      </div>
+      
+      
+      
+      <br>
+    </div>
+    
+    
+    <div class="grid grid-cols-1 lg:gap-x-20 lg:mx-16 lg:grid-cols-2">
+      
+      <div class="lg:my-14">
+      <div class="font-sans text-4xl font-bold text-text-blue">
+          <p>Administra, controla y mejora la seguridad </p>
+        </div>
+
+        
+        <div class="my-6 font-sans text-lg text-black">
+          <p>
+           En condominios, proporciona al personal administrativo una interfaz gráfica con información de residentes y visitantes, 
+           permitiendo controlar los tiempos de estadía. Ayuda a mejorar la seguridad; llevando registro de los vehículos que ingresan, 
+           recibiendo notificaciones cuando se detecta una patente de interés.
+           </p>
+        </div>
+        </div>
+        <div class="grid content-center grid-cols-3 gap-x-4 justify-items-center lg:justify-items-end">
+
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/edificios.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Edificios</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/condominios.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Condominios</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/empresas.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Empresas</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/estacionamientos.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Estacionamientos</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/estaciones.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Estaciones de Servicio</p>
+    </div>
+    <div class="flex flex-col items-center w-32 h-40 mt-2 border border-gray-200 rounded-xl hover:border-hover-blue">
+    <div class="w-24 h-24 mt-2"><img src="~assets/img/bodegas.svg" alt="auto" class="w-full h-full"></div>
+    <p class="font-sans font-semibold text-center text-md text-text-blue">Bodegas</p>
+    </div>
+    
+ </div>
+
+ </div>
+
+    <br>
+    <br>
+    
+    <br>
+
+    <Plan class="lg:gap-8 lg:mx-16"/>
+    <br>
+    <br>
+    <br>
+    <Faq class="lg:gap-8 lg:mx-16"/>
+    <br>
+    <br>
+    <br>
+    <Form class="lg:gap-8 lg:mx-16"/>
+    </div>
+    <br>
+    <br>
+    
+
+    
+    
+
+    <div class="bg-blue-800 footer">
+      <Footer/>
+
+    </div>
 
 
-    }
-}
-
-
-
-</script>
-
+    
+  </div>
+</template>
 <style>
-.icon_phone{
 
-background: url('~assets/img/phone.svg') no-repeat scroll 5px 5px;
+/* .footer{
 
+ background:  url('~assets/img/footer_circles.svg'), linear-gradient(to top, #011F4B, #2a4365);
+
+}
+
+*/
+
+.header_top {
+
+ background:  url('~assets/img/top_circles.svg'), linear-gradient(to bottom, #011F4B, #3182ce);
 
 
 }
-.padl_phone{
-padding-left:80px;
+
+.middle {
+
+@apply bg-middle-circles
 
 }
+
+
+.footer {
+  @apply bg-footer-blue
+
+
+}
+
+
+
 </style>
