@@ -142,6 +142,7 @@
 
 <script>
 import 'vue-select/dist/vue-select.css';
+import {firebase, db} from '@/plugins/firebase.js'
 
 import comunas_data from "~/assets/comunas_data.json";
 import { required, minLength, email, helpers } from 'vuelidate/lib/validators'
@@ -185,10 +186,23 @@ export default {
       } else {
         // do your submit logic here
         this.submitStatus = 'PENDING'
-        setTimeout(() => {
-          this.submitStatus = 'OK'
-        }, 500)
-        console.log("enviado")
+        var formulario = {
+            name:this.name,
+            email:this.email,
+            phone:this.phone,
+            comuna:this.comuna,
+            proyecto:this.proyecto,
+            comment:this.comment,
+      }
+
+        var estatus = this.send_mail(formulario)
+        if(estatus.error){
+          console.error('error send')
+
+        }
+       
+        this.submitStatus = 'OK'
+        
       }
     }
     ,
@@ -205,12 +219,36 @@ export default {
       this.name = value
       console.log("hola")
       this.$v.name.$touch()
-    }
-    }
+    },
+    async  send_mail(formulario) {
+      try {
+    var quote = await db.collection('mail').add({
+                form: formulario,
+                to: ['obedmacallums@gmail.com'],
+                message: {
+                subject: 'Hello from Firebase!',
+                html: `Nombre: ${formulario.name}<br>
+
+                      Telefono: ${formulario.phone}<br>
+
+                      Email: ${formulario.email}<br>
+
+                      Comuna: ${formulario.comuna}<br>
+
+                      Tipo de proyecto: ${formulario.proyecto}<br>
+
+                      Comentario: ${formulario.comment}` }})
+        
+  } catch (error) {
+    console.log(error);
+  }
+},
+}
     ,
 
     mounted() {
       this.comunaslist();
+      
 
 
     }
