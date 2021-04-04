@@ -3,14 +3,14 @@ export default {
   target: 'static',
 
   router: {
-    base: '/parkingfile_page/'
+    base: '/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'parkingfile_page',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'es'
     },
     meta: [
       { charset: 'utf-8' },
@@ -18,7 +18,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/parkingfile_page/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
