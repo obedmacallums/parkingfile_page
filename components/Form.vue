@@ -142,7 +142,7 @@
 
 <script>
 import 'vue-select/dist/vue-select.css';
-import {firebase, db} from '@/plugins/firebase.js'
+import {firebase, db, auth} from '@/plugins/firebase.js'
 
 import comunas_data from "~/assets/comunas_data.json";
 import { required, minLength, email, helpers } from 'vuelidate/lib/validators'
@@ -243,9 +243,32 @@ export default {
     console.log(error);
   }
 },
+
+async signIn(){
+    try{
+      var sign = await auth.signInAnonymously()
+      //console.log(sign)
+
+    }
+    catch (error){
+      console.log(error)
+
+
+    }
+    
+
+}
+
+
 }
     ,
 
+    created(){
+      this.signIn()
+      auth.onAuthStateChanged(firebaseUser => console.log("firebaseUser"))
+
+    }
+,
     mounted() {
       this.comunaslist();
       
