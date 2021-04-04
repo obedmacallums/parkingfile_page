@@ -265,7 +265,7 @@ async signIn(){
 
     created(){
       this.signIn()
-      auth.onAuthStateChanged(firebaseUser => console.log("firebaseUser"))
+      //auth.onAuthStateChanged(firebaseUser => console.log("firebaseUser"))
 
     }
 ,
