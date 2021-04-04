@@ -31,7 +31,7 @@
   <div class="px-1 mx-1 mt-2 lg:px-0 lg:mx-0 middle">
     <div class="grid grid-cols-1 lg:gap-20 lg:mx-16 lg:grid-cols-2">
       <div class="w-auto my-8 lg:my-24">
-        <img src="~assets/img/auto2.png" alt="auto">
+        <img src="~assets/img/auto.jpg" alt="auto">
       </div>
       <div class="lg:my-24">
       <div class="font-sans text-4xl font-bold text-text-blue">
