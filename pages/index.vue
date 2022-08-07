@@ -24,7 +24,7 @@
       </div>
 
       <div>
-        <Car_Animation />
+        <Car/>
       </div>
     </div>
     </div>
