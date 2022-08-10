@@ -31,7 +31,7 @@
           <img src="~assets/img/auto2.jpg" alt="auto" />
         </div>
         <div class="lg:my-24">
-          <div class="font-sans text-4xl font-bold text-text-blue">
+          <div class="font-sans text-4xl font-bold text-text-blue" id="nosotros">
             <p>ParkingFile</p>
           </div>
 
@@ -200,7 +200,7 @@
 
       <br />
 
-      <Plan class="lg:gap-8 lg:mx-16" />
+      <Plan class="lg:gap-8 lg:mx-16" id="planes" />
       <br />
       <br />
       <br />
@@ -208,7 +208,7 @@
       <br />
       <br />
       <br />
-      <Form class="lg:gap-8 lg:mx-16" />
+      <Form class="lg:gap-8 lg:mx-16" id="contacto" />
     </div>
     <br />
     <br />

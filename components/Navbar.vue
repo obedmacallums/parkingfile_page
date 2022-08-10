@@ -27,25 +27,25 @@
     >
       <div class="lg:flex-grow lg:space-x-20">
         <a
-          href="#"
+          href="#nosotros"
           class="block mt-4 font-sans text-white text-md lg:inline-block lg:mt-0 hover:text-button-blue"
         >
           Nosotros
         </a>
         <a
-          href="#"
+          href="#planes"
           class="block mt-4 font-sans text-white text-md lg:inline-block lg:mt-0 hover:text-button-blue"
         >
           Planes
         </a>
         <a
-          href="#"
+          href="#contacto"
           class="block mt-4 font-sans text-white text-md lg:inline-block lg:mt-0 hover:text-button-blue"
         >
           Contacto
         </a>
         <a
-          href="#"
+          href="/"
           class="block mt-4 font-sans text-white text-md lg:inline-block lg:mt-0 hover:text-button-blue"
         >
           Inicio
